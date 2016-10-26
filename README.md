@@ -3,6 +3,8 @@
 ## javascript log function shortcut
 Add shorthand js shortcut for console.log()
 
+**Keeps correct line numbers !**
+
 Supported browsers:
 - Internet Explorer 6+
   (extra module to add rudimentary console object with output)

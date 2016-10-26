@@ -1,7 +1,7 @@
-# log-shortcut
+# console-log-shortcut
 
-## javascript log function shortcut
-Add shorthand js shortcut for console.log()
+## javascript console.log function shortcut
+### use log() as shorthand shortcut for console.log() in javascript
 
 **Keeps correct line numbers !**
 

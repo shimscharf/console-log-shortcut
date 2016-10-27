@@ -1,10 +1,9 @@
-//  fix console object if it doesn't exists (ie6-8, mobile browsers)
+//  console object if it doesn't exists (ie6-8, mobile browsers)
 
 var console = console || (function () {
 	
 	var msgs = 0
 	,	cache = ''
-	,	console = {}
 	,	div
 	
 	,	resolve = function () {
@@ -30,15 +29,10 @@ var console = console || (function () {
 	}
 	
 	, log = function () {
-		var i = 0, msg = '', l = arguments.length, str, arg
-		
-		while ( i < l ) {
-			//arg = arguments[i++]
-			msg += (msg ? ", " : "") + resolve (arguments[i++]);
-		}
+		var msg = resolve.apply (null, arguments);
 		
 		if (document && document.body) {
-			div = document.getElementById('logger');
+			div = document.getElementById('logger');	// null if not found
 			if ( !div ) {
 				div = document.createElement('div');
 				div.id = 'logger';
@@ -51,10 +45,10 @@ var console = console || (function () {
 		}
 	}
 	
-	console.clear = function () {
-		div.innerHTML = '';
+	return {
+		clear :	function () {
+			div.innerHTML = '';
+		}
+	,	log : log
 	}
-	
-	console.log = log;
-	return console;
 }());
